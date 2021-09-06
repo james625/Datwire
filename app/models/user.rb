@@ -54,4 +54,18 @@ class User < ApplicationRecord
         self.save
         self.session_token
     end
+
+    has_many :created_servers,
+    primary_key: :id,
+    foreign_key: :creator_id,
+    class_name: :Server
+
+    has_many :users_servers,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :UsersServer
+
+    has_many :servers,
+    through: :users_servers,
+    source: :server
 end
