@@ -11,13 +11,14 @@ class SessionForm extends React.Component {
 
     handleChange(field){
         return e => {
-            this.setState({ [field]: e.currentTarget.value })
+            this.setState({ [field]: e.target.value })
         }
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
+        this.setState({ email: "", username: "", password: "" })
         this.props.processForm(user);
     }
 

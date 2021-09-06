@@ -7,7 +7,7 @@ const sessionErrorsReducer = (state = {}, action) => {
             return Object.assign({}, state, { errors: action.errors })
         case RECEIVE_CURRENT_USER:
             const newState = Object.assign({}, state)
-            delete newState[errors]
+            delete newState[action.errors]
             return newState
         default:
             return state
