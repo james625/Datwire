@@ -1,11 +1,12 @@
 class Api::UsersController < ApplicationController
 
     def index
-        @user = User.all
+        @users = User.all
     end
 
     def show
-        @user = User.find_by(params[:id])
+        @user = User.find_by(id: params[:id])
+        render 'api/users/show_servers'
     end
 
     def create
