@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
-import { fetchUserServers } from "../../actions/server_actions";
+import { createServer, fetchUserServers } from "../../actions/server_actions";
+import { logout } from "../../actions/session_actions";
 import UserIndex from "./user_index";
 
 const mSTP = state => {
@@ -11,7 +12,9 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
-        fetchUserServers: userId => dispatch(fetchUserServers(userId))
+        fetchUserServers: userId => dispatch(fetchUserServers(userId)),
+        createServer: server => dispatch(createServer(server)),
+        logout: () => dispatch(logout())
     }
 }
 

@@ -1,0 +1,212 @@
+.home-container {
+    grid-template-rows: 50px 1fr 1fr 1fr 1fr 1fr 1fr 50px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 50px;
+}
+
+.home-nav {
+    grid-row: 1 / 2;
+    background-color: #404EED;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 2%;
+}
+
+.first-container {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: #404EED;
+    display: flex;
+    justify-content: space-around;
+    background-image: image-url("firstcontainerbg.svg");
+    background-size: 115% 100%;
+    padding-top: 9%;
+    padding-bottom: 0;
+    color: white;
+    overflow-x: hidden;
+    h1 {
+        font-weight: 800;
+        font-size: 56px;
+        font-family: 'Paytone One', sans-serif;
+        text-align: center;
+    }
+    p {
+        padding: 30px;
+        font-size: 20px;
+        font-family: inherit;
+        text-align: center;
+        width: 750px;
+    }
+}
+
+.first-container-1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.second-container {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    display: grid;
+    justify-self: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    padding: 5%;
+    img {
+        grid-column: 2 / 3;
+    }
+    .second-container-1 {
+        grid-column: 3 / 4;
+        display: flex;
+        flex-direction: column;
+        h2 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 120%;
+            width: 300px;
+        }
+        p {
+            margin-top: 24px;
+            font-size: 20px;
+            line-height: 1.625;
+        }
+    }
+}
+
+.third-container {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    background-color: #F6F6F6;
+    display: grid;
+    justify-self: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    padding: 5%;
+    img {
+        grid-column: 3 / 4;
+    }
+    .third-container-1 {
+        grid-column: 2 / 3;
+        display: flex;
+        flex-direction: column;
+        h2 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 120%;
+            width: 300px;
+        }
+        p {
+            margin-top: 24px;
+            font-size: 20px;
+            line-height: 1.625;
+        }
+    }
+}
+
+.fourth-container {
+    grid-row-start: 5;
+    grid-row-end: 6;
+    display: grid;
+    justify-self: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    padding: 5%;
+    img {
+        grid-column: 2 / 3;
+    }
+    .fourth-container-1 {
+        grid-column: 3 / 4;
+        display: flex;
+        flex-direction: column;
+        h2 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 120%;
+            width: 300px;
+        }
+        p {
+            margin-top: 24px;
+            font-size: 20px;
+            line-height: 1.625;
+        }
+    }
+}
+
+.fifth-container {
+    background-color: #F6F6F6;
+    grid-row: 6 / 7;
+    display: grid;
+    justify-items: center;
+    padding: 5%;
+    h2 {
+        font-weight: 800;
+        line-height: 95%;
+        font-size: 40px;
+        width: 900px;
+        text-align: center;
+    }
+    p {
+        margin-top: 24px;
+        font-size: 20px;
+        line-height: 1.625;
+        width: 950px;
+        text-align: center;
+    }
+}
+
+.sixth-container {
+    background-color: #23272A;
+    grid-row: 7 / 8;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 5%;
+    h2 {
+        color: #5865f2;
+        font-weight: 800;
+        line-height: 95%;
+        font-size: 32px;
+    }
+    p {
+        color: #5865f2;
+        font-size: 16px;
+        padding-top: 8px;
+    }
+    button {
+        grid-column: 3;
+    }
+}
+
+.logo {
+    width: 100px;
+}
+
+.login-button, .signup-button {
+    border-radius: 40px;
+    font-size: 14px;
+    padding: 7px 16px;
+    border-width: 0;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.login-link {
+    text-decoration: none;
+    color: black;
+}
+
+.signup-link {
+    text-decoration: none;
+    color: white;
+}
+
+.signup-button {
+    background-color: #5865f2;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}

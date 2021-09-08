@@ -8,6 +8,9 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Raleway:wght@800&display=swap" rel="stylesheet">
     <% if current_user %>
       <script>
         window.currentUser = {
@@ -17,6 +20,15 @@
         };
       </script>
     <% end %>
+    <script type="text/javascript">
+      window.secondcontainer = "<%= image_url('secondcontainerimg.svg') %>"
+      window.thirdcontainer = "<%= image_url('thirdcontainerimg.svg') %>"
+      window.fourthcontainer = "<%= image_url('fourthcontainerimg.svg') %>"
+      window.fifthcontainer = "<%= image_url('fifthcontainerimg.svg') %>"
+      window.firstcontainer1 = "<%= image_url('firstcontainerimg1.svg') %>"
+      window.firstcontainer2 = "<%= image_url('firstcontainerimg2.svg') %>"
+      window.logo = "<%= image_url('logotext.png') %>"
+    </script>
   </head>
 
   <body>

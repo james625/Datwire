@@ -9,7 +9,6 @@ import UserIndexContainer from "./servers/user_index_container";
 const App = () => {
     return(
         <div>
-            <h1>Datwire</h1>
             <Switch>
                 <Route exact path="/" component={GreetingContainer} />
 
