@@ -10,7 +10,7 @@ class Greeting extends React.Component {
                     <nav className="home-nav">
                         <img src={window.logo} className="logo"/>
                         <p><a href="https://github.com/james625">Github</a></p>
-                        <button onClick={this.props.logout}>Log out</button>
+                        <button onClick={this.props.logout} className="login-button">Log out</button>
                     </nav>
                     <div className="first-container">
                         <img src={window.firstcontainer1} className="fci-1"/>
@@ -67,6 +67,7 @@ class Greeting extends React.Component {
                             screen share.
                         </p>
                         <img src={window.fifthcontainer} />
+                        <img src={window.startbg} />
                         <h2>Ready to start your journey?</h2>
                     </div>
                     <div className="sixth-container">
@@ -138,7 +139,8 @@ class Greeting extends React.Component {
                             screen share.
                         </p>
                         <img src={window.fifthcontainer} />
-                        <h2>Ready to start your journey?</h2>
+                        <img src={window.startbg} />
+                        <h2 className="start-journey">Ready to start your journey?</h2>
                     </div>
                     <div className="sixth-container">
                         <h2>IMAGINE A PLACE</h2>

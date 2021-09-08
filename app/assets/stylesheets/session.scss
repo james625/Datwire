@@ -1,8 +1,8 @@
 .session-form {
     background-color: #36393f;
-    position: fixed;
-    left: 25%;
-    top: 25%;
+    position: relative;
+    left: 35%;
+    top: 29%;
     width: 500px;
     padding: 32px;
     border-radius: 5px;
@@ -15,6 +15,7 @@
         font-size: 12px;
         line-height: 16px;
         font-weight: 600;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     }
     input {
         background: #303339;
@@ -48,43 +49,48 @@
     font-size: 14px;
     line-height: 16px;
     color: #6b6f76;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .excited {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 20px;
     color: #b9bbbe;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-h3 {
+.welcome, .create {
     font-weight: 600;
     color: white;
     font-size: 24px;
     line-height: 30px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-button {
+.session-form-button {
     color: white;
     background: #5865f2;
     font-size: 16px;
     line-height: 24px;
     margin-bottom: 8px;
     border: none;
-    font-weight: 500;
+    font-weight: 540;
     border-radius: 3px;
     padding: 8px 16px;
     cursor: pointer;
     width: 100%;
     height: auto;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-button:hover {
+.session-form-button:hover {
     background: #4752C4;
 }
 
 .errors {
     color: red;
     font-style: italic;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .create {
@@ -93,5 +99,12 @@ button:hover {
 }
 
 .splash {
-    background-image: image-url("signupbg.svg");
+    background-image: image-url("sessionbg.svg");
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
 }

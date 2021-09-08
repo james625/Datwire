@@ -7,6 +7,7 @@ class SessionForm extends React.Component {
         super(props)
         this.state = { email: "", username: "", password: "" }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleDemo = this.handleDemo.bind(this)
     }
 
     componentWillUnmount() {
@@ -26,12 +27,18 @@ class SessionForm extends React.Component {
         this.props.processForm(user);
     }
 
+    handleDemo(e) {
+        e.preventDefault();
+        const user = {email: "james19", password: "password"}
+        this.props.processForm(user);
+    }
+
     render(){
         if (this.props.formType === "login"){
             return (
                 <div className="splash">
                     <div className="session-form">
-                        <h3>Welcome back!</h3>
+                        <h3 className="welcome">Welcome back!</h3>
                         <p className="excited">We're so excited to see you again!</p>
                         <form onSubmit={this.handleSubmit}>
                             <label>EMAIL <i className="errors">{this.props.errors[0]}</i>
@@ -44,9 +51,9 @@ class SessionForm extends React.Component {
                                 <input type="password" value={this.state.password} onChange={this.handleChange("password")}></input>
                             </label>
                             <br/>
-                            <button>Login</button>
+                            <button className="session-form-button">Login</button>
                         </form>
-                        <button>Demo User</button>
+                        <button className="session-form-button" onClick={this.handleDemo}>Demo User</button>
                         <p className="account">Need an account? <Link to="/signup" className="register">Register</Link></p>
                     </div>
                 </div>
@@ -66,7 +73,7 @@ class SessionForm extends React.Component {
                             <label>PASSWORD
                                 <input type="password" value={this.state.password} onChange={this.handleChange("password")}></input>
                             </label>
-                            <button>Continue</button>
+                            <button className="session-form-button">Continue</button>
                         </form>
                         <Link to="/login" className="register">Already have an account?</Link>
                     </div>
