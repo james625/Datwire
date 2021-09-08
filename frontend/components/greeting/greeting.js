@@ -9,7 +9,7 @@ class Greeting extends React.Component {
                 <div className="home-container">
                     <nav className="home-nav">
                         <img src={window.logo} className="logo"/>
-                        <p><a href="https://github.com/james625">Github</a></p>
+                        <p><a href="https://github.com/james625" className="github">Github</a></p>
                         <button onClick={this.props.logout} className="login-button">Log out</button>
                     </nav>
                     <div className="first-container">
@@ -72,7 +72,7 @@ class Greeting extends React.Component {
                     </div>
                     <div className="sixth-container">
                         <h2>IMAGINE A PLACE</h2>
-                        <p><a href="https://github.com/james625">Github</a></p>
+                        <p><a href="https://github.com/james625" className="github">Github</a></p>
                     </div>
                 </div>
             )
@@ -81,7 +81,7 @@ class Greeting extends React.Component {
                 <div className="home-container">
                     <nav className="home-nav">
                         <img src={window.logo} className="logo"/>
-                        <p><a href="https://github.com/james625">Github</a></p>
+                        <p><a href="https://github.com/james625" className="github">Github</a></p>
                         <button className="login-button"><Link to="/login" className="login-link">Login</Link></button>
                     </nav>
                     <div className="first-container">
@@ -144,7 +144,7 @@ class Greeting extends React.Component {
                     </div>
                     <div className="sixth-container">
                         <h2>IMAGINE A PLACE</h2>
-                        <p><a href="https://github.com/james625">Github</a></p>
+                        <p><a href="https://github.com/james625" className="github">Github</a></p>
                         <button className="signup-button"><Link to="/signup" className="signup-link">Sign up</Link></button>
                     </div>
                 </div>

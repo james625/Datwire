@@ -27,18 +27,21 @@ class UserIndex extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="user-index">
                 <button onClick={this.props.logout}>Log out</button>
-                <ul>
+                <ul className="servers-list">
                     {this.props.servers.map( server => {
                         return <UserIndexItem key={server.id} server={server} />
                     })}
-                    <button>Add a Server</button>
+                    <li className="server-list-item">
+                        <button className="server-button add-server">+</button>
+                    </li>
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" value={this.state.name} onChange={this.handleChange("name")}></input>
                         <button>Create</button>
                     </form>
                 </ul>
+                <p>DIRECT MESSAGES</p>
             </div>
         )
     }
