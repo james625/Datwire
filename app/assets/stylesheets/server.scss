@@ -1,39 +1,169 @@
 .server-button {
-    padding: 40%;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
     border-radius: 50%;
     border-style: none;
     background-color: #36393F;
     font-size: large;
     font-weight: 600;
     color: white;
+    margin-left: 9px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 3px;
 }
 
 .add-server {
     color: green;
 }
 
-.server-button:hover {
+.server-button:hover, .datwire-button:hover {
     background-color: #5865F2;
     border-radius: 33%;
 }
 
 .server-link {
     text-decoration: none;
+    margin: 0;
 }
 
 .user-index {
     display: grid;
-    grid-template-columns: 1fr 3fr 15fr 6fr;
+    grid-template-columns: 80px 3fr 15fr 6fr;
     ul {
-        grid-column: 1 / 1;
+        grid-column: 1 / 2;
     }
 }
 
 .servers-list {
     overflow-y: scroll;
-    background-color: #202225;
+    overflow-x: hidden;
+    background-color: #202225; 
+}
+
+.servers-list::-webkit-scrollbar{
+    width: 0px;
 }
 
 .server-list-item {
-    padding: 10%;
+    padding: 2%;
+    padding-right: 10%;
+}
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+.modal {
+    background-color: white;
+    width: 400px;
+    height: auto;
+    border-radius: 8px;
+    position: relative;
+    top: 35%;
+    left: 38%;
+    padding: 1%;
+    padding-right: 1.5%;
+}
+
+.modal-show {
+    display: block;
+}
+
+.modal-x {
+    font-size: 40px;
+    color: grey;
+    cursor: pointer;
+    float: right;
+}
+
+.modal-customize {
+    text-align: center;
+    padding: 5%;
+    font-weight: 750;
+    font-size: 24px;
+    line-height: 30px;
+    font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+.modal-label {
+    color: #4f5660;
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+    cursor: default;
+    margin-left: 13px;
+   
+} 
+
+.modal-input {
+    margin-left: 13px;
+    margin-bottom: 30px;
+    width: 90%;
+    max-width: 100%;
+    background: rgb(250, 250, 250);
+    border: none;
+    border: 1px solid rgba(153, 153, 153, 0.233);
+    border-radius: 3px;
+    height: 20px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: text;
+}
+
+.modal-input:focus {
+    border: 1px solid #5865F2;
+    outline: none;
+}
+
+.modal-button {
+    background-color: #5865F2;
+    color: white;
+    font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+    border-radius: 3px;
+    font-size: 14;
+    font-weight: 500;
+    line-height: 16px;
+    height: auto;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 13px;
+    cursor: pointer;
+    width: 96%;
+}
+
+.modal-button:hover {
+    background-color: #4752C4;
+}
+
+.button-down {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.datwire-button {
+    border-radius: 50%;
+    margin-bottom: 2px;
+    margin-right: 0;
+    width: 48px;
+    height: 48px;
+    margin-left: 9px;
+}
+
+.random-bar {
+    background-color: rgba(192, 192, 192, 0.986);
+    opacity: .5;
+    width: 40px;
+    height: 2px;
+    margin-left: 16px;
+    margin-bottom: 5px;
 }
