@@ -14,8 +14,8 @@
 		"build": "webpack —mode=production"
   },
   "engines": {
-    "node": "{node -v}",
-    "npm": "{npm -v}"
+    "node": "10.13.0",
+    "npm": "6.4.1"
   },
   "repository": {
     "type": "git",
