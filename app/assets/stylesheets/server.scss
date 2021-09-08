@@ -1,0 +1,38 @@
+.server-button {
+    padding: 40%;
+    border-radius: 50%;
+    border-style: none;
+    background-color: #36393F;
+    font-size: large;
+    font-weight: 600;
+    color: white;
+}
+
+.add-server {
+    color: green;
+}
+
+.server-button:hover {
+    background-color: #5865F2;
+    border-radius: 33%;
+}
+
+.server-link {
+    text-decoration: none;
+}
+
+.user-index {
+    display: grid;
+    grid-template-columns: 1fr 3fr 15fr 6fr;
+    ul {
+        grid-column: 1 / 1;
+    }
+}
+
+.servers-list {
+    overflow-y: scroll;
+}
+
+.server-list-item {
+    padding: 10%;
+}

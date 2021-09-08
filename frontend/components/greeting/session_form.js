@@ -43,7 +43,7 @@ class SessionForm extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                             <label>EMAIL <i className="errors">{this.props.errors[0]}</i>
                                 <br/>
-                                <input type="text" value={this.state.email} onChange={this.handleChange("email")}></input>
+                                <input type="email" value={this.state.email} onChange={this.handleChange("email")}></input>
                             </label>
                             <br/>
                             <label>PASSWORD <i className="errors">{this.props.errors[0]}</i>
@@ -65,7 +65,7 @@ class SessionForm extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                             <h3 className="create">Create an account</h3>
                             <label>EMAIL
-                                <input type="text" value={this.state.email} onChange={this.handleChange("email")}></input>
+                                <input type="email" value={this.state.email} onChange={this.handleChange("email")} required={true}></input>
                             </label>
                             <label>USERNAME
                                 <input type="text" value={this.state.username} onChange={this.handleChange("username")}></input>
