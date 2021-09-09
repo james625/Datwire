@@ -15,7 +15,7 @@ class Api::ServersController < ApplicationController
         if @server.save
             render 'api/servers/show'
         else
-            render json: @sip.errors.full_messages, status: 422
+            render json: @server.errors.full_messages, status: 422
         end
     end
 
@@ -23,7 +23,7 @@ class Api::ServersController < ApplicationController
         @server = Server.find_by(id: params[id])
         if @server.update(server_params)
         else
-            render json: @sip.errors.full_messages, status: 422
+            render json: @server.errors.full_messages, status: 422
         end
     end
 

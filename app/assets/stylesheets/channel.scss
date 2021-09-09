@@ -1,0 +1,26 @@
+.channels-container {
+    grid-column: 2 / 2;
+    grid-row: 2 / 2;
+    background-color: #2F3136;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 95.9vh;
+}
+
+.channels-container::-webkit-scrollbar {
+    width: 0px;
+}
+
+.channels-container-header {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+    color: #8E9297;
+    font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+    align-items: center;
+}
+
+#plus {
+    font-size: 25px;
+    cursor: pointer;
+}

@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { createChannel } from "../../actions/channel_actions";
 import { createServer, deleteServer, fetchUserServers } from "../../actions/server_actions";
 import { logout } from "../../actions/session_actions";
 import UserIndex from "./user_index";
@@ -16,7 +17,8 @@ const mDTP = dispatch => {
         fetchUserServers: userId => dispatch(fetchUserServers(userId)),
         createServer: server => dispatch(createServer(server)),
         logout: () => dispatch(logout()),
-        deleteServer: () => dispatch(deleteServer)
+        deleteServer: () => dispatch(deleteServer),
+        createChannel: (channel, server) => dispatch(createChannel(channel, server))
     }
 }
 

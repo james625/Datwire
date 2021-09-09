@@ -31,7 +31,7 @@
 .user-index {
     display: grid;
     grid-template-columns: 80px 3fr 15fr 3fr;
-    grid-template-rows: 80px 1fr;
+    grid-template-rows: 40px 1fr;
 }
 
 .servers-list {
@@ -174,7 +174,7 @@
     background-color: #2F3136;
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 91.7vh;
+    height: 95.9vh;
 }
 
 .server-content-container::-webkit-scrollbar {
@@ -182,7 +182,7 @@
 }
 
 .members-list {
-    margin-top: 35px;
+    margin-top: 25px;
     margin-left: 15px;
     color: #8E9297;
     font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;

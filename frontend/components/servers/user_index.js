@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Channel from "./channel";
 import Server from "./server";
 import UserIndexItem from "./user_index_item";
 
@@ -64,6 +65,7 @@ class UserIndex extends React.Component {
                     </div>
                 </div>
                 <button onClick={this.props.logout}>Log out</button>
+                <Channel server={this.props.server} />
                 <Server server={this.props.server} />
             </div>
         )
