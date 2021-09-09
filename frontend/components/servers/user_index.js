@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Server from "./server";
 import UserIndexItem from "./user_index_item";
 
 class UserIndex extends React.Component {
@@ -63,6 +64,7 @@ class UserIndex extends React.Component {
                     </div>
                 </div>
                 <button onClick={this.props.logout}>Log out</button>
+                <Server server={this.props.server} />
             </div>
         )
     }

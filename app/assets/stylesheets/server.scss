@@ -30,16 +30,16 @@
 
 .user-index {
     display: grid;
-    grid-template-columns: 80px 3fr 15fr 6fr;
-    ul {
-        grid-column: 1 / 2;
-    }
+    grid-template-columns: 80px 3fr 15fr 3fr;
+    grid-template-rows: 80px 1fr;
 }
 
 .servers-list {
     overflow-y: scroll;
     overflow-x: hidden;
-    background-color: #202225; 
+    background-color: #202225;
+    height: 100vh;
+    grid-column: 1 / 2;
 }
 
 .servers-list::-webkit-scrollbar{
@@ -166,4 +166,37 @@
     height: 2px;
     margin-left: 16px;
     margin-bottom: 5px;
+}
+
+.server-content-container {
+    grid-column: 4 / 4;
+    grid-row: 2 / 2;
+    background-color: #2F3136;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 91.7vh;
+}
+
+.server-content-container::-webkit-scrollbar {
+    width: 0px;
+}
+
+.members-list {
+    margin-top: 35px;
+    margin-left: 15px;
+    color: #8E9297;
+    font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+
+.users-list {
+    li {
+        padding: 7%;
+        font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+        color: rgb(204, 204, 204);
+    }
+}
+
+.members-list-p {
+    font-weight: 700;
+    font-size: small;
 }

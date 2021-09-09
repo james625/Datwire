@@ -14,10 +14,11 @@ const App = () => {
 
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <AuthRoute path="/signup" component={SignupFormContainer} />
-                <Route path="/servers" component={UserIndexContainer} />
-                {/* <Route path="/servers/serverId" /> */}
+                
                 {/* <Route path="/servers/@me" /> */}
             </Switch>
+            <Route exact path="/servers" component={UserIndexContainer} />
+            <Route path="/servers/:serverId" component={UserIndexContainer}/>
         </div>
     )
 };
