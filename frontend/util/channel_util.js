@@ -15,7 +15,7 @@ export const fetchChannel = channel => {
 export const createChannel = (channel, server) => {
     return $.ajax({
         method: "post",
-        url: `/api/${server.id}/channels`,
+        url: `/api/servers/${server.id}/channels`,
         data: {channel}
     })
 }

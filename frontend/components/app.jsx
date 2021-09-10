@@ -19,6 +19,7 @@ const App = () => {
             </Switch>
             <Route exact path="/servers" component={UserIndexContainer} />
             <Route path="/servers/:serverId" component={UserIndexContainer}/>
+            <Route path="/servers/:serverId/:channelId" component={UserIndexContainer} />
         </div>
     )
 };

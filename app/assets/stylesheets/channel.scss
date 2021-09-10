@@ -13,14 +13,51 @@
 
 .channels-container-header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 25px;
     color: #8E9297;
     font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
     align-items: center;
+    margin-left: 4%;
+    margin-right: 4%;
 }
 
-#plus {
+#plus, #hashtag {
     font-size: 25px;
     cursor: pointer;
+}
+
+#plus:hover {
+    color: white;
+}
+
+#hashtag {
+    color: #8E9297;
+}
+
+.channels-list-item {
+    display: flex;
+    align-items: center;
+    color: #8E9297;
+    font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+    padding: 2%;
+    cursor: pointer;
+    margin-left: 4%;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 4%;
+}
+
+.channel-name {
+    padding-left: 2%;
+}
+
+.channels-list-item:hover {
+    background-color: #34373C;
+    color: #D7D8DE;
+}
+
+.channels-list-item:focus {
+    background-color: #393C43;
+    color: #FFFFE1;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Channel extends React.Component {
 
@@ -17,7 +18,8 @@ class Channel extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.createChannel(this.state);
+        this.props.createChannel(this.state, this.props.server);
+        this.props.updateServer(this.props.server);
         this.setState({ name: "", modal: false });
     }
 
@@ -36,12 +38,14 @@ class Channel extends React.Component {
                     <p className="members-list-p">TEXT CHANNELS</p>
                     <p id="plus" onClick={this.handleModal(true)}>+</p>
                 </div>
-                <ul>
+                <ul className="channels-list">
                     {this.props.server.channels.map(channel => {
-                        <li key={channel.id}>
-                            <p id="hashtag">&#10723;</p>
-                            <p className="channel-name">{channel.name}</p>
-                        </li>
+                        return (<li key={channel.id}>
+                                    <Link to={`/servers/${this.props.server.id}/${channel.id}`} className="channels-list-item">
+                                        <p id="hashtag">&#10723;</p>
+                                        <p className="channel-name">{channel.name}</p>
+                                    </Link>
+                                </li>)
                     })}
                 </ul>
                 <div className={`modal-container ${ this.state.modal ? "modal-show" : ""}`}>

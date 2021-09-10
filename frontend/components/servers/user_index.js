@@ -65,7 +65,7 @@ class UserIndex extends React.Component {
                     </div>
                 </div>
                 <button onClick={this.props.logout}>Log out</button>
-                <Channel server={this.props.server} />
+                <Channel server={this.props.server} createChannel={this.props.createChannel} updateServer={this.props.updateServer} />
                 <Server server={this.props.server} />
             </div>
         )

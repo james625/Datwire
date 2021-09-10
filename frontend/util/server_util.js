@@ -33,3 +33,11 @@ export const deleteServer = server => {
         url: `/api/servers/${server.id}`
     })
 }
+
+export const updateServer = server => {
+    return $.ajax({
+        method: "patch",
+        url: `/api/servers/${server.id}`,
+        data: { server }
+    })
+}
