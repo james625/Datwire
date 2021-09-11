@@ -18,7 +18,7 @@ const mDTP = dispatch => {
         fetchUserServers: userId => dispatch(fetchUserServers(userId)),
         createServer: server => dispatch(createServer(server)),
         logout: () => dispatch(logout()),
-        deleteServer: () => dispatch(deleteServer),
+        deleteServer: server => dispatch(deleteServer(server)),
         createChannel: (channel, server) => dispatch(createChannel(channel, server)),
         updateServer: server => dispatch(updateServer(server)),
         fetchChannels: () => dispatch(fetchChannels())

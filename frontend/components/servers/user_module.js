@@ -9,7 +9,7 @@ class UserModule extends React.Component {
                 <p className="user-module-username">
                     {this.props.user.username}
                 </p>
-                <Link to="/"><i class="fas fa-home"></i></Link>
+                <Link to="/"><i className="fas fa-home"></i></Link>
                 <i className="fas fa-sign-out-alt" onClick={this.props.logout}></i>
             </div>
         )

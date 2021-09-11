@@ -69,7 +69,12 @@ class UserIndex extends React.Component {
                     </div>
                 </div>
                 <div className="channel-banner-container"></div>
-                <ServerDropdown server={this.props.server} />
+                <ServerDropdown 
+                    server={this.props.server} 
+                    currentUser={this.props.currentUser} 
+                    updateServer={this.props.updateServer}
+                    deleteServer={this.props.deleteServer}
+                />
                 <ChannelBanner channel={this.props.channel} />
                 <Channel 
                     server={this.props.server} 

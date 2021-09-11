@@ -5,6 +5,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     height: 95.9vh;
+    z-index: auto;
 }
 
 .channels-container::-webkit-scrollbar {
@@ -113,24 +114,68 @@
 }
 
 .server-dropdown-container {
-    grid-row: 1 / 1;
+    grid-row: 1 / auto;
     grid-column: 2 / 2;
     background-color: #2F3136;
     border-bottom: 1px solid black;
     cursor: pointer;
-    div {
-        color: white;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-left: 4%;
-        margin-right: 4%;
-        margin-top: 4%;
-        font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
-        font-weight: 600;
-    }
+    z-index: 1;
+   
+}
+
+.server-dropdown-container-div {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 4%;
+    font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 600;
 }
 
 .server-dropdown-container:hover{
     background-color: #34373C;
+}
+
+.dropdown-list {
+    margin-top: 15px;
+    background-color: #2F3136;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    display: none;
+}
+
+.edit-server-name, .delete-leave-server {
+    font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+    color: #B6B8BB;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    display: flex;
+    justify-content: space-between;
+    padding: 6% 4%;
+    margin: 2% 2%;
+    border-radius: 5px;
+}
+
+.delete-leave-server {
+    color: #ED4245;
+}
+
+.edit-server-name:hover {
+    color: white;
+    background-color: #4752C4;
+}
+
+.delete-leave-server:hover {
+    color: white;
+    background-color: #ED4245;
+}
+
+#show-dropdown {
+    display: block;
 }
