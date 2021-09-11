@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users
     resources :servers do
-      resources :channels, except: [:show, :destroy]
+      resources :channels, except: [:show, :destroy, :index]
     end
-    resources :channels, only: [:show, :destroy]
+    resources :channels, only: [:show, :destroy, :index]
     resource :session, only: [:create, :destroy]
   end
 end

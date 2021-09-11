@@ -18,7 +18,7 @@ const App = () => {
                 {/* <Route path="/servers/@me" /> */}
             </Switch>
             <Route exact path="/servers" component={UserIndexContainer} />
-            <Route path="/servers/:serverId" component={UserIndexContainer}/>
+            <Route exact path="/servers/:serverId" component={UserIndexContainer}/>
             <Route path="/servers/:serverId/:channelId" component={UserIndexContainer} />
         </div>
     )

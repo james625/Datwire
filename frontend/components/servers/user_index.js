@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Channel from "./channel";
+import ChannelBanner from "./channel_banner";
 import Server from "./server";
+import ServerDropdown from "./server_dropdown";
 import UserIndexItem from "./user_index_item";
+import UserModule from "./user_module";
 
 class UserIndex extends React.Component {
     constructor(props){
@@ -14,6 +17,7 @@ class UserIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchUserServers(this.props.currentUser.id)
+        this.props.fetchChannels()
     }
 
     handleChange(field){
@@ -64,8 +68,15 @@ class UserIndex extends React.Component {
                         </form>
                     </div>
                 </div>
-                <button onClick={this.props.logout}>Log out</button>
-                <Channel server={this.props.server} createChannel={this.props.createChannel} updateServer={this.props.updateServer} />
+                <div className="channel-banner-container"></div>
+                <ServerDropdown server={this.props.server} />
+                <ChannelBanner channel={this.props.channel} />
+                <Channel 
+                    server={this.props.server} 
+                    createChannel={this.props.createChannel} 
+                    updateServer={this.props.updateServer}
+                />
+                <UserModule logout={this.props.logout} user={this.props.currentUser} />
                 <Server server={this.props.server} />
             </div>
         )

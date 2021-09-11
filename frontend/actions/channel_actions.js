@@ -40,3 +40,7 @@ export const createChannel = (channel, server) => dispatch => {
 export const deleteChannel = channel => dispatch => {
     return channelUtils.deleteChannel(channel).then(() => dispatch(removeChannel(channel.id)))
 }
+
+export const fetchChannels = () => dispatch => {
+    return channelUtils.fetchChannels().then(channels =>dispatch(receiveChannels(channels)))
+}

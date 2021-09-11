@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHashtag } from '@fortawesome/free-solid-svg-icons';
 
 class Channel extends React.Component {
 
@@ -42,7 +44,7 @@ class Channel extends React.Component {
                     {this.props.server.channels.map(channel => {
                         return (<li key={channel.id}>
                                     <Link to={`/servers/${this.props.server.id}/${channel.id}`} className="channels-list-item">
-                                        <p id="hashtag">&#10723;</p>
+                                        <FontAwesomeIcon icon={faHashtag} id="hashtag"/>
                                         <p className="channel-name">{channel.name}</p>
                                     </Link>
                                 </li>)
@@ -54,7 +56,14 @@ class Channel extends React.Component {
                             <p className="modal-x" onClick={this.handleModal(false)}>&times;</p>
                             <p className="modal-customize">Create Text Channel</p>
                             <label><p className="modal-label">CHANNEL NAME</p>
-                                <input type="text" value={this.state.name} onChange={this.handleChange("name")} className="modal-input"></input>
+                                <input 
+                                    type="text" 
+                                    value={this.state.name} 
+                                    onChange={this.handleChange("name")} 
+                                    className="modal-input"
+                                    placeholder="new-channel"
+                                >
+                                </input>
                             </label>
                             <br/>
                             <button className={`modal-button ${this.state.name.length === 0 ? "button-down" : ""}`} 

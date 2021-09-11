@@ -26,3 +26,10 @@ export const deleteChannel = (channel) => {
         url: `/api/channels/${channel.id}`
     })
 }
+
+export const fetchChannels = () => {
+    return $.ajax({
+        method: "get",
+        url: "/api/channels"
+    })
+}

@@ -22,7 +22,7 @@
     margin-right: 4%;
 }
 
-#plus, #hashtag {
+#plus {
     font-size: 25px;
     cursor: pointer;
 }
@@ -33,6 +33,9 @@
 
 #hashtag {
     color: #8E9297;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 100;
 }
 
 .channels-list-item {
@@ -49,7 +52,7 @@
 }
 
 .channel-name {
-    padding-left: 2%;
+    padding-left: 4%;
 }
 
 .channels-list-item:hover {
@@ -60,4 +63,74 @@
 .channels-list-item:focus {
     background-color: #393C43;
     color: #FFFFE1;
+}
+
+.channel-banner-container {
+    display: flex;
+    background-color: #36393F;
+    grid-column: 3 / 5;
+    grid-row: 1 / 1;
+    align-items: center;
+    border-bottom: solid 1px black;
+}
+
+.channel-banner-name {
+    padding-left: .5%;
+    color: white;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+    margin-top: .5%;
+}
+
+#channel-banner-hashtag {
+    font-size: 20px;
+    color: #8E9297;
+    margin-left: 2%;
+}
+
+.user-module-container {
+    grid-column: 2 / 2;
+    grid-row: 2 / 2;
+    display: flex;
+    justify-content: space-around;
+    align-self: end;
+    background-color: #292B2F;
+    padding: 10%;
+}
+
+.user-module-username {
+    color: white;
+    font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.fa-sign-out-alt, .fa-home {
+    cursor: pointer;
+    color: white;
+}
+
+.server-dropdown-container {
+    grid-row: 1 / 1;
+    grid-column: 2 / 2;
+    background-color: #2F3136;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    div {
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 4%;
+        margin-right: 4%;
+        margin-top: 4%;
+        font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+        font-weight: 600;
+    }
+}
+
+.server-dropdown-container:hover{
+    background-color: #34373C;
 }
