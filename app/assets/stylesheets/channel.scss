@@ -39,29 +39,46 @@
     font-weight: 100;
 }
 
-.channels-list-item {
-    display: flex;
-    align-items: center;
-    color: #8E9297;
+.cog {
+    color: #2F3136;
+    justify-self: flex-end;
     font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
     padding: 2%;
     cursor: pointer;
-    margin-left: 4%;
-    text-decoration: none;
     border-radius: 5px;
-    margin-right: 4%;
 }
 
 .channel-name {
     padding-left: 4%;
+    padding-right: 20%;
 }
 
-.channels-list-item:hover {
+.channels-list-tag {
+    display: grid;
+    grid-template-columns: 20px 1fr 20px;
+    border-radius: 5px;
+    margin-right: 4%;
+    margin-left: 4%;
+    cursor: pointer;
+    align-items: center;
+    color: #8E9297;
+    font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+    padding: 3%;
+    text-decoration: none;
+}
+
+.channels-list-tag:hover {
     background-color: #34373C;
     color: #D7D8DE;
+    .channels-list-item {
+        color: white;
+    }
+    .cog {
+        color: white;
+    }
 }
 
-.channels-list-item:focus {
+.channels-list-tag:focus {
     background-color: #393C43;
     color: #FFFFE1;
 }

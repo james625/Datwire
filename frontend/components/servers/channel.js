@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHashtag } from '@fortawesome/free-solid-svg-icons';
+import { faHashtag, faCog } from '@fortawesome/free-solid-svg-icons';
 
 class Channel extends React.Component {
 
@@ -43,9 +43,10 @@ class Channel extends React.Component {
                 <ul className="channels-list">
                     {this.props.server.channels.map(channel => {
                         return (<li key={channel.id}>
-                                    <Link to={`/servers/${this.props.server.id}/${channel.id}`} className="channels-list-item">
+                                    <Link to={`/servers/${this.props.server.id}/${channel.id}`} className="channels-list-tag">
                                         <FontAwesomeIcon icon={faHashtag} id="hashtag"/>
                                         <p className="channel-name">{channel.name}</p>
+                                        <FontAwesomeIcon icon={faCog} className="cog"/>
                                     </Link>
                                 </li>)
                     })}
