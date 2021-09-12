@@ -209,6 +209,10 @@
     color: black;
 }
 
+.login-link:hover {
+    color: rgb(107, 182, 252);
+}
+
 .signup-link {
     text-decoration: none;
     color: white;
@@ -216,6 +220,7 @@
 
 .signup-button {
     background-color: #5865f2;
+    color: white;
 }
 
 .github {

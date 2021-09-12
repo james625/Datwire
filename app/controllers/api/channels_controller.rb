@@ -22,6 +22,7 @@ class Api::ChannelsController < ApplicationController
     def update
         @channel = Channel.find_by(id: params[:id])
         if @channel.update(channel_params)
+            render 'api/channels/show'
         else
             render json: @channel.errors.full_messages, status: 422
         end

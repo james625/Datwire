@@ -33,3 +33,11 @@ export const fetchChannels = () => {
         url: "/api/channels"
     })
 }
+
+export const updateChannel = channel => {
+    return $.ajax({
+        method: "patch",
+        url: `/api/channels/${channel.id}`,
+        data: { channel }
+    })
+}

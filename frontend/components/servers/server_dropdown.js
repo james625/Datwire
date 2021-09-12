@@ -71,7 +71,10 @@ class ServerDropdown extends React.Component {
                     <li className="edit-server-name" onClick={this.handleEditModal(true)}>
                         Edit Server Name <FontAwesomeIcon icon={faEdit} />
                     </li>
-                    <li className="delete-leave-server" onClick={this.handleDeleteModal(true)}>
+                    <li className="delete-leave-server" 
+                        onClick={ this.props.currentUser.id === this.props.server.creator.id ?
+                            this.handleDeleteModal(true) : null}
+                    >
                         {this.props.currentUser.id === this.props.server.creator.id ?
                             "Delete Server" : "Leave Server"}
                         <FontAwesomeIcon icon={faArrowCircleLeft} />

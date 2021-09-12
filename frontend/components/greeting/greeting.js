@@ -10,7 +10,9 @@ class Greeting extends React.Component {
                     <nav className="home-nav">
                         <img src={window.logo} className="logo"/>
                         <p><a href="https://github.com/james625" className="github">Github</a></p>
-                        <button onClick={this.props.logout} className="login-button">Log out</button>
+                        <button className="login-button">
+                            <Link to="/servers/@me" className="login-link">Open Discord</Link>
+                        </button>
                     </nav>
                     <div className="first-container">
                         <img src={window.firstcontainer1} className="fci-1"/>
@@ -73,6 +75,7 @@ class Greeting extends React.Component {
                     <div className="sixth-container">
                         <h2>IMAGINE A PLACE</h2>
                         <p><a href="https://github.com/james625" className="github">Github</a></p>
+                        <button onClick={this.props.logout} className="signup-button">Log out</button>
                     </div>
                 </div>
             )
