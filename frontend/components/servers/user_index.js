@@ -82,6 +82,7 @@ class UserIndex extends React.Component {
                     updateServer={this.props.updateServer}
                     channel={this.props.channel}
                     updateChannel={this.props.updateChannel}
+                    deleteChannel={this.props.deleteChannel}
                 />
                 <UserModule logout={this.props.logout} user={this.props.currentUser} />
                 <Server server={this.props.server} />

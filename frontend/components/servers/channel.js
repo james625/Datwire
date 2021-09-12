@@ -7,10 +7,11 @@ class Channel extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { name: "", modal: false, editModal: false }
+        this.state = { name: "", modal: false, editModal: false, modalInfo: {} }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleModal = this.handleModal.bind(this)
         this.handleUpdate = this.handleUpdate.bind(this)
+        this.handleDelete = this.handleDelete.bind(this)
     }
 
     handleChange(field){
@@ -33,18 +34,25 @@ class Channel extends React.Component {
         }
     }
 
-    handleEditModal(bool){
+    handleEditModal(bool, channel){
         return e => {
             e.preventDefault();
-            this.setState({ editModal: bool })
+            this.setState({ editModal: bool, modalInfo: channel })
         }
     }
 
     handleUpdate(e){
         e.preventDefault();
-        this.props.updateChannel({ name: this.state.name, id: this.props.channel.id });
+        this.props.updateChannel({ name: this.state.name, id: this.state.modalInfo.id });
         this.props.updateServer(this.props.server);
-        this.setState({ editModal: false, name: "" })
+        this.setState({ editModal: false, name: "", modalInfo: {} })
+    }
+
+    handleDelete(e) {
+        e.preventDefault();
+        this.props.deleteChannel( { id: this.state.modalInfo.id });
+        this.props.updateServer(this.props.server);
+        this.setState({ editModal: false, name: "", modalInfo: {} })
     }
 
     render() {
@@ -90,25 +98,28 @@ class Channel extends React.Component {
                 <div className={`modal-container ${ this.state.editModal ? "modal-show" : ""}`}>
                     <div className="edit-channel-modal">
                         <form>
-                            <p className="edit-modal-customize">Edit Channel Name</p>
+                            <p className="edit-modal-customize">Channel Settings</p>
                             <label><p className="modal-label">CHANNEL NAME</p>
                                 <input 
                                     type="text" 
                                     value={this.state.name} 
                                     onChange={this.handleChange("name")} 
-                                    className="modal-input"
-                                    placeholder={this.props.channel.name}
+                                    className="channel-modal-input"
+                                    placeholder={this.state.modalInfo.name}
                                 >
                                 </input>
                             </label>
                             <br/>
-                            <input className={`edit-modal-button ${this.state.name.length === 0 ? "button-down" : ""}`} 
-                                    disabled={this.state.name.length === 0}
-                                type="submit"
-                                value="Save"
-                                onClick={this.handleUpdate}
-                            />
-                            <p onClick={this.handleEditModal(false)} className="edit-modal-cancel">Cancel</p>
+                            <div id="edit-channel-button-cancel-container">
+                                <p className="delete-channel-button" onClick={this.handleDelete}>Delete</p>
+                                <p onClick={this.handleEditModal(false, {})} className="edit-channel-modal-cancel">Cancel</p>
+                                <input className={`edit-channel-modal-button ${this.state.name.length === 0 ? "button-down" : ""}`} 
+                                        disabled={this.state.name.length === 0}
+                                    type="submit"
+                                    value="Save"
+                                    onClick={this.handleUpdate}
+                                />
+                            </div>
                         </form>
                     </div>
                 </div>
