@@ -1,4 +1,4 @@
-.channels-container {
+.channels-container, .dm-container {
     grid-column: 2 / 2;
     grid-row: 2 / 2;
     background-color: #2F3136;
@@ -8,7 +8,7 @@
     z-index: auto;
 }
 
-.channels-container::-webkit-scrollbar {
+.channels-container::-webkit-scrollbar, .dm-container::-webkit-scrollbar {
     width: 0px;
 }
 

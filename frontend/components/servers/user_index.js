@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Channel from "./channel";
 import ChannelBanner from "./channel_banner";
+import Home from "./home";
 import Server from "./server";
 import ServerDropdown from "./server_dropdown";
 import UserIndexItem from "./user_index_item";
@@ -53,6 +54,9 @@ class UserIndex extends React.Component {
                     <li className="server-list-item">
                         <button className="server-button add-server" onClick={this.handleModal(true)}>+</button>
                     </li>
+                    <Link to="/servers/explore" className="server-link compass-explore">
+                        <i className="fas fa-compass"></i>
+                    </Link>
                 </ul>
                 <div className={`modal-container ${ this.state.modal ? "modal-show" : ""}`}>
                     <div className="modal">
@@ -69,6 +73,10 @@ class UserIndex extends React.Component {
                     </div>
                 </div>
                 <div className="channel-banner-container"></div>
+                <Home 
+                    server={this.props.server} 
+                    path={this.props.path}
+                />
                 <ServerDropdown 
                     server={this.props.server} 
                     currentUser={this.props.currentUser} 
