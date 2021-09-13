@@ -49,7 +49,15 @@ class ServerDropdown extends React.Component {
     handleDelete(e) {
         e.preventDefault();
         this.props.deleteServer(this.props.server);
-        // <Redirect to="/servers/@me" />
+    }
+
+    handleLeaveServer(server) {
+        return e => {
+            e.preventDefault();
+            this.props.deleteUsersServer({ user_id: this.props.currentUser.id, server_id: server.id })
+            this.props.updateUser(this.props.currentUser)
+            this.props.fetchUserServers(this.props.currentUser.id)
+        }
     }
 
     render() {
@@ -73,7 +81,7 @@ class ServerDropdown extends React.Component {
                     </li>
                     <li className="delete-leave-server" 
                         onClick={ this.props.currentUser.id === this.props.server.creator.id ?
-                            this.handleDeleteModal(true) : null}
+                            this.handleDeleteModal(true) : this.handleLeaveServer(this.props.server)}
                     >
                         {this.props.currentUser.id === this.props.server.creator.id ?
                             "Delete Server" : "Leave Server"}

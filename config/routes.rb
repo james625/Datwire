@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :channels, except: [:show, :destroy, :index, :update]
     end
     resources :channels, only: [:show, :destroy, :index, :update]
+    resources :users_servers, only: [:create, :destroy]
     resource :session, only: [:create, :destroy]
   end
 end

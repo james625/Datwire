@@ -22,7 +22,7 @@ class UserIndex extends React.Component {
     componentDidMount() {
         this.props.fetchUserServers(this.props.currentUser.id)
         this.props.fetchChannels()
-        this.props.updateUser(currentUser)
+        this.props.updateUser(this.props.currentUser)
     }
 
     handleChange(field){
@@ -83,12 +83,22 @@ class UserIndex extends React.Component {
                 />
                 <Discover path={this.props.path}/>
                 <Explore path={this.props.path}/>
-                <JoinServers path={this.props.path} servers={this.props.currentUser.join_servers} />
+                <JoinServers 
+                    path={this.props.path} 
+                    servers={this.props.currentUser.join_servers} 
+                    createUsersServer = {this.props.createUsersServer}
+                    currentUser = {this.props.currentUser}
+                    updateUser = {this.props.updateUser}
+                    fetchUserServers = {this.props.fetchUserServers}
+                />
                 <ServerDropdown 
                     server={this.props.server} 
                     currentUser={this.props.currentUser} 
                     updateServer={this.props.updateServer}
                     deleteServer={this.props.deleteServer}
+                    deleteUsersServer = {this.props.deleteUsersServer}
+                    updateUser = {this.props.updateUser}
+                    fetchUserServers = {this.props.fetchUserServers}
                 />
                 <ChannelBanner channel={this.props.channel} />
                 <Channel 

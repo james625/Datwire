@@ -13,7 +13,7 @@ class Server extends React.Component {
                     <ul className="users-list">
                         <li>{this.props.server.creator.username} 👑</li>
                         {this.props.server.users.map( user => {
-                            <ServerUserItem user={user} />
+                            return <ServerUserItem user={user} key={user.id} />
                         })}
                     </ul>
                 </div>
