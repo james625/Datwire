@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Channel from "./channel";
 import ChannelBanner from "./channel_banner";
+import Discover from "./discover";
+import Explore from "./explore";
 import Home from "./home";
+import JoinServers from "./join_servers";
 import Server from "./server";
 import ServerDropdown from "./server_dropdown";
 import UserIndexItem from "./user_index_item";
@@ -19,6 +22,7 @@ class UserIndex extends React.Component {
     componentDidMount() {
         this.props.fetchUserServers(this.props.currentUser.id)
         this.props.fetchChannels()
+        this.props.updateUser(currentUser)
     }
 
     handleChange(field){
@@ -77,6 +81,9 @@ class UserIndex extends React.Component {
                     server={this.props.server} 
                     path={this.props.path}
                 />
+                <Discover path={this.props.path}/>
+                <Explore path={this.props.path}/>
+                <JoinServers path={this.props.path} servers={this.props.currentUser.join_servers} />
                 <ServerDropdown 
                     server={this.props.server} 
                     currentUser={this.props.currentUser} 
