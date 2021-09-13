@@ -49,6 +49,7 @@ class ServerDropdown extends React.Component {
     handleDelete(e) {
         e.preventDefault();
         this.props.deleteServer(this.props.server);
+        this.setState({ deleteModal: false, dropdown: false })
     }
 
     handleLeaveServer(server) {
@@ -65,10 +66,12 @@ class ServerDropdown extends React.Component {
         return(
             <div 
                 className="server-dropdown-container" 
-                onClick={this.handleDropdown(!this.state.dropdown)} 
-                onBlur={this.handleDropdown(false)}
             >
-                <div className="server-dropdown-container-div">
+                <div 
+                    className="server-dropdown-container-div"
+                    onClick={this.handleDropdown(!this.state.dropdown)} 
+                    onBlur={this.handleDropdown(false)}
+                >
                     <p className="server-dropdown-name">{this.props.server.name}</p>
                     <i className="fas fa-chevron-down"></i>
                 </div>
@@ -76,9 +79,10 @@ class ServerDropdown extends React.Component {
                     className="dropdown-list" 
                     id={this.state.dropdown ? "show-dropdown" : ""}
                 >
+                    {this.props.currentUser.id === this.props.server.creator.id ?
                     <li className="edit-server-name" onClick={this.handleEditModal(true)}>
                         Edit Server Name <FontAwesomeIcon icon={faEdit} />
-                    </li>
+                    </li> : null}
                     <li className="delete-leave-server" 
                         onClick={ this.props.currentUser.id === this.props.server.creator.id ?
                             this.handleDeleteModal(true) : this.handleLeaveServer(this.props.server)}
