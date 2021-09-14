@@ -31,4 +31,9 @@ class Server < ApplicationRecord
     foreign_key: :server_id,
     class_name: :Channel
     
+    has_many :messages,
+    primary_key: :id,
+    foreign_key: :server_id,
+    class_name: :Message
+
 end

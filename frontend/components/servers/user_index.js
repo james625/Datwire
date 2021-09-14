@@ -6,6 +6,7 @@ import Discover from "./discover";
 import Explore from "./explore";
 import Home from "./home";
 import JoinServers from "./join_servers";
+import Message from "./message";
 import Server from "./server";
 import ServerDropdown from "./server_dropdown";
 import UserIndexItem from "./user_index_item";
@@ -109,6 +110,7 @@ class UserIndex extends React.Component {
                     updateChannel={this.props.updateChannel}
                     deleteChannel={this.props.deleteChannel}
                 />
+                <Message />
                 <UserModule logout={this.props.logout} user={this.props.currentUser} />
                 <Server server={this.props.server} />
             </div>

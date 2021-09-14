@@ -68,4 +68,10 @@ class User < ApplicationRecord
     has_many :servers,
     through: :users_servers,
     source: :server
+
+    has_many :messages,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Message
+    
 end

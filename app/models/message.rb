@@ -1,25 +1,32 @@
 # == Schema Information
 #
-# Table name: channels
+# Table name: messages
 #
 #  id         :bigint           not null, primary key
-#  name       :string           not null
+#  body       :text             not null
+#  author_id  :integer          not null
+#  channel_id :integer          not null
 #  server_id  :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Channel < ApplicationRecord
+class Message < ApplicationRecord
 
-    validates :name, presence: true
+    validates :body, presence: true
 
     belongs_to :server,
     primary_key: :id,
     foreign_key: :server_id,
     class_name: :Server
-    
-    has_many :messages,
+
+    belongs_to :channel,
     primary_key: :id,
     foreign_key: :channel_id,
-    class_name: :Message
+    class_name: :Channel
+
+    belongs_to :user,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :User
 
 end
