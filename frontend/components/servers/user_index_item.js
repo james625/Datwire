@@ -6,7 +6,7 @@ class UserIndexItem extends React.Component {
     render() {
         return(
             <li className="server-list-item">
-                <Link to={`/servers/${this.props.server.id}`} className="server-link">
+                <Link to={`/servers/${this.props.server.id}/${this.props.server.channels[0].id}`} className="server-link">
                     <button className="server-button">{this.props.server.name[0]}</button>
                 </Link>
             </li>

@@ -7,7 +7,10 @@ class Home extends React.Component {
         if (this.props.path === "/servers/explore") return null
         return (
             <div className="dm-container">
-                this is home
+                <div className="dm-container-header">
+                    <p className="members-list-p">DIRECT MESSAGES</p>
+                    <p id="plus">+</p>
+                </div>
             </div>
         )
     }

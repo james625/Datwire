@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => {
         servers: Object.values(state.entities.servers),
         server: state.entities.servers[ownProps.match.params.serverId],
         channel: state.entities.channels[ownProps.match.params.channelId],
-        path: ownProps.match.path
+        path: ownProps.match.url
     }
 }
 

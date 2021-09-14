@@ -1,0 +1,42 @@
+.user-dropdown-container {
+    grid-row: 1 / auto;
+    grid-column: 2 / 2;
+    background-color: #2F3136;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.direct-messages-container {
+    grid-column: 3 / 5;
+    grid-row: 2 / 2;
+    background-color: #36393F;
+}
+
+.server-message-input, .direct-message-input{
+    background-color: #36393F;
+    grid-row: 2 / 2;
+    grid-column: 3 / 3;
+    align-self: end;
+    padding: 20px;
+}
+
+.direct-message-input {
+    grid-column: 3 / 5;
+}
+
+.message-input-box {
+    background-color: #40444B;
+    color: white;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    border: none;
+    border-radius: 8px;
+    font-family: "Whitney","Helvetica Neue",Helvetica,Arial,sans-serif;
+    width: 100%;
+    font-size: 16px;
+}
+
+.message-input-box:focus {
+    outline: none;
+}

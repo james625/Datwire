@@ -50,6 +50,7 @@ class ServerDropdown extends React.Component {
         e.preventDefault();
         this.props.deleteServer(this.props.server);
         this.setState({ deleteModal: false, dropdown: false })
+        this.props.history.push("/servers/@me")
     }
 
     handleLeaveServer(server) {

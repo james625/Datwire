@@ -12,7 +12,7 @@
     width: 0px;
 }
 
-.channels-container-header {
+.channels-container-header, .dm-container-header {
     display: flex;
     justify-content: space-between;
     margin-top: 25px;
@@ -139,7 +139,7 @@
     z-index: 1;
 }
 
-.server-dropdown-container-div {
+.server-dropdown-container-div, .user-dropdown-container-div {
     color: white;
     display: flex;
     justify-content: space-between;

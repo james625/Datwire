@@ -2,13 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Channel from "./channel";
 import ChannelBanner from "./channel_banner";
+import DirectMessage from "./direct_messages";
 import Discover from "./discover";
 import Explore from "./explore";
 import Home from "./home";
 import JoinServers from "./join_servers";
 import Message from "./message";
+import MessageInput from "./message_input";
 import Server from "./server";
 import ServerDropdown from "./server_dropdown";
+import UserDropdown from "./user_dropdown";
 import UserIndexItem from "./user_index_item";
 import UserModule from "./user_module";
 
@@ -92,6 +95,7 @@ class UserIndex extends React.Component {
                     updateUser = {this.props.updateUser}
                     fetchUserServers = {this.props.fetchUserServers}
                 />
+                <UserDropdown path={this.props.path} currentUser={this.props.currentUser} />
                 <ServerDropdown 
                     server={this.props.server} 
                     currentUser={this.props.currentUser} 
@@ -100,6 +104,7 @@ class UserIndex extends React.Component {
                     deleteUsersServer = {this.props.deleteUsersServer}
                     updateUser = {this.props.updateUser}
                     fetchUserServers = {this.props.fetchUserServers}
+                    history={this.props.history}
                 />
                 <ChannelBanner channel={this.props.channel} />
                 <Channel 
@@ -110,7 +115,9 @@ class UserIndex extends React.Component {
                     updateChannel={this.props.updateChannel}
                     deleteChannel={this.props.deleteChannel}
                 />
-                <Message />
+                <Message server={this.props.server}/>
+                <DirectMessage path={this.props.path} />
+                <MessageInput path={this.props.path} server={this.props.server} channel={this.props.channel}/>
                 <UserModule logout={this.props.logout} user={this.props.currentUser} />
                 <Server server={this.props.server} />
             </div>
