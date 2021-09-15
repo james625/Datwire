@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Channel from "./channel";
 import ChannelBanner from "./channel_banner";
-import DirectMessage from "./direct_messages";
+import DirectMessage from "./direct_message";
 import Discover from "./discover";
 import Explore from "./explore";
 import Home from "./home";
@@ -26,7 +26,7 @@ class UserIndex extends React.Component {
     componentDidMount() {
         this.props.fetchUserServers(this.props.currentUser.id)
         this.props.fetchChannels()
-        this.props.updateUser(this.props.currentUser)
+        // this.props.updateUser(this.props.currentUser)
         if (this.props.channelId) {
             this.props.fetchChannelMessages(this.props.channelId)
         }
@@ -35,6 +35,8 @@ class UserIndex extends React.Component {
     componentDidUpdate(prevProps) {
         if (this.props.channelId && (this.props.channelId !== prevProps.channelId)) {
             this.props.fetchChannelMessages(this.props.channelId)
+            this.props.fetchUserServers(this.props.currentUser.id)
+            this.props.fetchChannels()
         }
     }
 
@@ -103,6 +105,7 @@ class UserIndex extends React.Component {
                     currentUser = {this.props.currentUser}
                     updateUser = {this.props.updateUser}
                     fetchUserServers = {this.props.fetchUserServers}
+                    history={this.props.history}
                 />
                 <UserDropdown path={this.props.path} currentUser={this.props.currentUser} />
                 <ServerDropdown 
@@ -130,6 +133,8 @@ class UserIndex extends React.Component {
                     messages={this.props.messages}
                     channelId={this.props.channelId}
                     fetchChannelMessages={this.props.fetchChannelMessages}
+                    fetchUserServers={this.props.fetchUserServers}
+                    fetchChannels={this.props.fetchChannels}
                 />
                 <DirectMessage path={this.props.path} />
                 <MessageInput 

@@ -16,8 +16,16 @@ class Message extends React.Component {
                 <ul>
                     {this.props.messages.map( message => {
                         return (
-                            <li key={message.id}>
-                                {message.body}
+                            <li key={message.id} className="message-list-item">
+                                <p className="message-sender">
+                                    {message.user.username}
+                                    <span className="timestamp">
+                                        {message.created_at.slice(5,7)}/
+                                        {message.created_at.slice(8,10)}/
+                                        {message.created_at.slice(0,4)}
+                                    </span>
+                                </p>
+                                <p className="message-body">{message.body}</p>
                             </li>
                         )
                     })}

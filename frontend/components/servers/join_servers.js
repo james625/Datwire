@@ -13,6 +13,7 @@ class JoinServers extends React.Component {
             this.props.createUsersServer( { user_id: this.props.currentUser.id, server_id: server.id })
             this.props.updateUser(this.props.currentUser)
             this.props.fetchUserServers(this.props.currentUser.id)
+            this.props.history.push(`/servers/${server.id}`)
         }
     }
 
