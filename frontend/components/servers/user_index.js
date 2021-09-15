@@ -25,6 +25,7 @@ class UserIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchUserServers(this.props.currentUser.id)
+        console.log("fetched user servers")
         this.props.fetchChannels()
         // this.props.updateUser(this.props.currentUser)
         if (this.props.channelId) {
