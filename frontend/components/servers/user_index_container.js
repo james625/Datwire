@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { createChannel, deleteChannel, fetchChannels, updateChannel } from "../../actions/channel_actions";
+import { createMessage, fetchChannelMessages } from "../../actions/message_actions";
 import { createServer, deleteServer, fetchUserServers, updateServer } from "../../actions/server_actions";
 import { logout, updateUser } from "../../actions/session_actions";
 import { createUsersServer, deleteUsersServer } from "../../actions/users_server_actions";
@@ -11,7 +12,9 @@ const mSTP = (state, ownProps) => {
         servers: Object.values(state.entities.servers),
         server: state.entities.servers[ownProps.match.params.serverId],
         channel: state.entities.channels[ownProps.match.params.channelId],
-        path: ownProps.match.url
+        path: ownProps.match.url,
+        channelId: ownProps.match.params.channelId,
+        messages: Object.values(state.entities.messages)
     }
 }
 
@@ -28,7 +31,9 @@ const mDTP = dispatch => {
         deleteChannel: channel => dispatch(deleteChannel(channel)),
         updateUser: user => dispatch(updateUser(user)),
         createUsersServer: usersServer => dispatch(createUsersServer(usersServer)),
-        deleteUsersServer: usersServer => dispatch(deleteUsersServer(usersServer))
+        deleteUsersServer: usersServer => dispatch(deleteUsersServer(usersServer)),
+        createMessage: message => dispatch(createMessage(message)),
+        fetchChannelMessages: channelId => dispatch(fetchChannelMessages(channelId))
     }
 }
 

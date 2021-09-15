@@ -27,6 +27,15 @@ class UserIndex extends React.Component {
         this.props.fetchUserServers(this.props.currentUser.id)
         this.props.fetchChannels()
         this.props.updateUser(this.props.currentUser)
+        if (this.props.channelId) {
+            this.props.fetchChannelMessages(this.props.channelId)
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.channelId && (this.props.channelId !== prevProps.channelId)) {
+            this.props.fetchChannelMessages(this.props.channelId)
+        }
     }
 
     handleChange(field){
@@ -115,9 +124,24 @@ class UserIndex extends React.Component {
                     updateChannel={this.props.updateChannel}
                     deleteChannel={this.props.deleteChannel}
                 />
-                <Message server={this.props.server}/>
+                <Message 
+                    server={this.props.server} 
+                    channel={this.props.channel}
+                    messages={this.props.messages}
+                    channelId={this.props.channelId}
+                    fetchChannelMessages={this.props.fetchChannelMessages}
+                />
                 <DirectMessage path={this.props.path} />
-                <MessageInput path={this.props.path} server={this.props.server} channel={this.props.channel}/>
+                <MessageInput 
+                    path={this.props.path} 
+                    server={this.props.server} 
+                    channel={this.props.channel}
+                    currentUser={this.props.currentUser}
+                    createMessage={this.props.createMessage}
+                    updateChannel={this.props.updateChannel}
+                    channelId={this.props.channelId}
+                    fetchChannelMessages={this.props.fetchChannelMessages}
+                />
                 <UserModule logout={this.props.logout} user={this.props.currentUser} />
                 <Server server={this.props.server} />
             </div>

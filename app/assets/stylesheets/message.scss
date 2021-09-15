@@ -2,5 +2,13 @@
     grid-column: 3 / 3;
     grid-row: 2 / 2;
     background-color: #36393F;
-    height: 95.9vh;
+    height: 87.6vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.messages-container::-webkit-scrollbar {
+    width: 0px;
 }
