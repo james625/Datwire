@@ -120,6 +120,7 @@ class UserIndex extends React.Component {
                     path={this.props.path} 
                     currentUser={this.props.currentUser} 
                     server={this.props.server}
+                    updateUser={this.props.updateUser}
                 />
                 <ServerDropdown 
                     server={this.props.server} 
@@ -177,6 +178,9 @@ class UserIndex extends React.Component {
                     dmChannel={this.props.dmChannel}
                     params={this.props.params}
                     dmChannels={this.props.dmChannels}
+                    createDM={this.props.createDM}
+                    fetchChannelDMs={this.props.fetchChannelDMs}
+                    dmChannelId={this.props.dmChannelId}
                 />
                 <UserModule logout={this.props.logout} user={this.props.currentUser} />
                 <Server server={this.props.server} />

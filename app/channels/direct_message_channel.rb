@@ -1,12 +1,12 @@
 class DirectMessageChannel < ApplicationCable::Channel
 
-    # def subscribed
-    #     @channel = Channel.find_by(user1_id: params[:user1_id], )
-    #     stream_for @channel
-    # end
+    def subscribed
+        @dmchannel = DmChannel.find_by(id: params[:id])
+        stream_for @dmchannel
+    end
 
-    # def receive(data)
-    #     ChatChannel.broadcast_to(@channel, message: data['message'])
-    # end
+    def receive(data)
+        DirectMessageChannel.broadcast_to(@dmchannel, message: data['message'])
+    end
 
 end

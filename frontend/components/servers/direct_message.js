@@ -10,7 +10,14 @@ class DirectMessage extends React.Component {
 
     render() {
         if (this.props.path === "/servers/explore") return null
+        if (this.props.path === "/servers/@me") {
+            return (
+                <div className="me-no-messages-container"></div>
+            )
+        }
         if (this.props.server) return null
+        if (this.props.directMessages.length === 0) return null
+        
         return (
             <div className="direct-messages-container">
                 <ul>

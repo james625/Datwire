@@ -7,6 +7,27 @@ class DirectMessageInput extends React.Component {
         super(props)
         this.state = { input: "" }
         this.handleInputChange = this.handleInputChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.subscription = null
+    }
+
+    componentDidMount(){
+        this.subscribe()
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.path !== this.props.path) {
+            this.setState({ input: "" })
+            this.subscription.unsubscribe()
+            this.subscribe()
+            this.props.fetchChannelDMs(this.props.dmChannelId)
+        }
+    }
+
+    componentWillUnmount(){
+        if (this.subscription){
+            this.subscription.unsubscribe();
+        }
     }
 
     handleInputChange(e){
@@ -14,7 +35,28 @@ class DirectMessageInput extends React.Component {
         this.setState({ input: e.currentTarget.value })
     }
 
+    handleSubmit(e){
+        e.preventDefault();
+        this.subscription.send({
+            message: {
+                dm_channel_id: this.props.dmChannelId,
+                author_id: this.props.currentUser.id,
+                body: this.state.input
+            }
+        })
+        this.setState({ input: "" })
+    }
 
+    subscribe() {
+        this.subscription = consumer.subscriptions.create(
+            { channel: "DirectMessageChannel", id: this.props.dmChannelId },
+            {
+                received: data => {
+                    this.props.createDM(data.message)
+                }
+            }
+        )
+    }
 
     render() {
         if (this.props.server) return null
@@ -22,7 +64,7 @@ class DirectMessageInput extends React.Component {
         if (!this.props.dmChannels) return null
         if (!this.props.dmChannel) return null
         return(
-            <div className="server-message-input">
+            <div className="direct-message-input">
                 <form onSubmit={this.handleSubmit}>
                     <input 
                         type="text" 

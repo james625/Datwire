@@ -45,7 +45,6 @@ class MessageInput extends React.Component {
                 body: this.state.input
             }
         })
-        this.props.fetchChannelMessages(this.props.channel.id)
         this.setState({ input: "" })
     }
 

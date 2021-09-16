@@ -11,6 +11,15 @@
     grid-column: 3 / 5;
     grid-row: 2 / 2;
     background-color: #36393F;
+    height: 87.6vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.direct-messages-container::-webkit-scrollbar {
+    width: 0px;
 }
 
 .server-message-input{
@@ -24,6 +33,11 @@
 
 .direct-message-input {
     grid-column: 3 / 5;
+    background-color: #36393F;
+    grid-row: 2 / 2;
+    align-self: end;
+    padding: 2.1vh;
+    overflow: hidden
 }
 
 .message-input-box {
@@ -53,4 +67,10 @@
 
 .create-dm-cancel, .create-dm-create {
     width: 50%;
+}
+
+.me-no-messages-container {
+    grid-column: 3 / 5;
+    grid-row: 2 / 2;
+    background-color: #36393F;
 }
