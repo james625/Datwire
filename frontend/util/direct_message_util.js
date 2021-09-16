@@ -6,11 +6,11 @@ export const createDM = message => {
     })
 }
 
-export const fetchUserDMs = userId => {
+export const fetchChannelDMs = dmChannelId => {
     return $.ajax({
         method: "get",
         url: "/api/direct_messages",
-        data: { userId }
+        data: { dmChannelId }
     })
 }
 

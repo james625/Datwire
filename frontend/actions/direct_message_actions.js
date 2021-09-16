@@ -25,8 +25,8 @@ const removeDM = messageId => {
     }
 }
 
-export const fetchUserDMs = userId => dispatch => {
-    return dmUtils.fetchUserDMs(userId).then(messages => dispatch(receiveDMs(messages)))
+export const fetchChannelDMs = dmChannelId => dispatch => {
+    return dmUtils.fetchChannelDMs(dmChannelId).then(messages => dispatch(receiveDMs(messages)))
 }
 
 export const createDM = message => dispatch => {

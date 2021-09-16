@@ -3,7 +3,8 @@ import React from "react";
 class UserDropdown extends React.Component {
 
     render() {
-        if (this.props.path !== "/servers/@me") return null
+        if (this.props.path === "/servers/explore") return null
+        if (this.props.server) return null
         return (
             <div className="user-dropdown-container">
                 <div 

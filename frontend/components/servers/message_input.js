@@ -67,7 +67,6 @@ class MessageInput extends React.Component {
         return(
             <div className="server-message-input">
                 <form onSubmit={this.handleSubmit}>
-                    {/* <input type="text" value={this.props.path} onChange={this.handleChannelChange} on></input> */}
                     <input 
                         type="text" 
                         className="message-input-box" 

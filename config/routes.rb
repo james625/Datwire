@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :users_servers, only: [:create, :destroy]
     resources :messages, only: [:index, :create, :destroy]
     resources :direct_messages, only: [:index, :create, :destroy]
+    resources :dm_channels, only: [:index, :create]
     resource :session, only: [:create, :destroy]
   end
 end

@@ -74,14 +74,19 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Message
     
-    has_many :initiated_dms,
+    has_many :dmchannels1,
     primary_key: :id,
     foreign_key: :user1_id,
-    class_name: :DirectMessage
+    class_name: :DmChannel
 
-    has_many :dms,
+    has_many :dmchannels2,
     primary_key: :id,
     foreign_key: :user2_id,
+    class_name: :DmChannel
+
+    has_many :direct_messages,
+    primary_key: :id,
+    foreign_key: :author_id,
     class_name: :DirectMessage
 
 end

@@ -2,25 +2,25 @@
 #
 # Table name: direct_messages
 #
-#  id         :bigint           not null, primary key
-#  user1_id   :integer          not null
-#  user2_id   :integer          not null
-#  body       :text             not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id            :bigint           not null, primary key
+#  body          :text             not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  author_id     :integer
+#  dm_channel_id :integer
 #
 class DirectMessage < ApplicationRecord
 
     validates :body, presence: true
 
-    belongs_to :user1,
+    belongs_to :dmchannel,
     primary_key: :id,
-    foreign_key: :user1_id,
-    class_name: :User
+    foreign_key: :dm_channel_id,
+    class_name: :DmChannel
 
-    belongs_to :user2,
+    belongs_to :author,
     primary_key: :id,
-    foreign_key: :user2_id,
+    foreign_key: :author_id,
     class_name: :User
 
 end

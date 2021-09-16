@@ -45,3 +45,12 @@
 .hidden-message-submit {
     display: none;
 }
+
+.create-dm-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-dm-cancel, .create-dm-create {
+    width: 50%;
+}

@@ -10,6 +10,7 @@ const App = () => {
     return(
         <div>
             <Switch>
+                <ProtectedAuthRoute path="/servers/@me/:user1Id/:user2Id/:dmChannelId" component={UserIndexContainer} />
                 <ProtectedAuthRoute path="/servers/:serverId/:channelId" component={UserIndexContainer} />
                 <ProtectedAuthRoute path="/servers/explore" component={UserIndexContainer} />
                 <ProtectedAuthRoute exact path="/servers/@me" component={UserIndexContainer} />

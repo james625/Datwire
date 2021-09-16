@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Channel from "./channel";
 import ChannelBanner from "./channel_banner";
 import DirectMessage from "./direct_message";
+import DirectMessageInput from "./direct_message_input";
 import Discover from "./discover";
 import Explore from "./explore";
 import Home from "./home";
@@ -25,11 +26,14 @@ class UserIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchUserServers(this.props.currentUser.id)
-        console.log("fetched user servers")
         this.props.fetchChannels()
-        // this.props.updateUser(this.props.currentUser)
+        this.props.fetchDmChannels(this.props.currentUser.id)
+        this.props.updateUser(this.props.currentUser)
         if (this.props.channelId) {
             this.props.fetchChannelMessages(this.props.channelId)
+        }
+        if (this.props.dmChannelId) {
+            this.props.fetchChannelDMs(this.props.dmChannelId)
         }
     }
 
@@ -94,8 +98,12 @@ class UserIndex extends React.Component {
                 </div>
                 <div className="channel-banner-container"></div>
                 <Home 
-                    server={this.props.server} 
+                    server={this.props.server}
                     path={this.props.path}
+                    currentUser={this.props.currentUser}
+                    history={this.props.history}
+                    dmChannels={this.props.dmChannels}
+                    createDmChannel={this.props.createDmChannel}
                 />
                 <Discover path={this.props.path}/>
                 <Explore path={this.props.path}/>
@@ -108,7 +116,11 @@ class UserIndex extends React.Component {
                     fetchUserServers = {this.props.fetchUserServers}
                     history={this.props.history}
                 />
-                <UserDropdown path={this.props.path} currentUser={this.props.currentUser} />
+                <UserDropdown 
+                    path={this.props.path} 
+                    currentUser={this.props.currentUser} 
+                    server={this.props.server}
+                />
                 <ServerDropdown 
                     server={this.props.server} 
                     currentUser={this.props.currentUser} 
@@ -119,7 +131,11 @@ class UserIndex extends React.Component {
                     fetchUserServers = {this.props.fetchUserServers}
                     history={this.props.history}
                 />
-                <ChannelBanner channel={this.props.channel} />
+                <ChannelBanner 
+                    channel={this.props.channel} 
+                    server={this.props.server} 
+                    path={this.props.path}
+                />
                 <Channel 
                     server={this.props.server} 
                     createChannel={this.props.createChannel} 
@@ -137,7 +153,13 @@ class UserIndex extends React.Component {
                     fetchUserServers={this.props.fetchUserServers}
                     fetchChannels={this.props.fetchChannels}
                 />
-                <DirectMessage path={this.props.path} />
+                <DirectMessage 
+                    path={this.props.path} 
+                    server={this.props.server}
+                    dmChannelId={this.props.dmChannelId}
+                    fetchChannelDMs={this.props.fetchChannelDMs}
+                    directMessages={this.props.directMessages}
+                />
                 <MessageInput 
                     path={this.props.path} 
                     server={this.props.server} 
@@ -147,6 +169,14 @@ class UserIndex extends React.Component {
                     updateChannel={this.props.updateChannel}
                     channelId={this.props.channelId}
                     fetchChannelMessages={this.props.fetchChannelMessages}
+                />
+                <DirectMessageInput
+                    path={this.props.path} 
+                    server={this.props.server} 
+                    currentUser={this.props.currentUser}
+                    dmChannel={this.props.dmChannel}
+                    params={this.props.params}
+                    dmChannels={this.props.dmChannels}
                 />
                 <UserModule logout={this.props.logout} user={this.props.currentUser} />
                 <Server server={this.props.server} />
