@@ -16,8 +16,9 @@ class DirectMessage extends React.Component {
             )
         }
         if (this.props.server) return null
-        if (this.props.directMessages.length === 0) return null
-        
+        if (this.props.directMessages.length === 0) {
+            return <div className="me-no-messages-container"></div>
+        }
         return (
             <div className="direct-messages-container">
                 <ul>
