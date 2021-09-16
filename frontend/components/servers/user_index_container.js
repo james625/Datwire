@@ -21,7 +21,8 @@ const mSTP = (state, ownProps) => {
         dmChannels: Object.values(state.entities.dmChannels),
         directMessages: Object.values(state.entities.directMessages),
         dmChannelId: ownProps.match.params.dmChannelId,
-        dmChannel: state.entities.dmChannels[ownProps.match.params.dmChannelId]
+        dmChannel: state.entities.dmChannels[ownProps.match.params.dmChannelId],
+        channels: Object.values(state.entities.channels)
     }
 }
 

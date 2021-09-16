@@ -20,6 +20,12 @@ class Channel extends React.Component {
         }
     }
 
+    // componentDidUpdate(prevProps) {
+    //     if (prevProps.channels !== this.props.channels) {
+    //         this.props.updateServer(this.props.server);
+    //     }
+    // }
+
     handleSubmit(e){
         e.preventDefault();
         this.props.createChannel(this.state, this.props.server);
