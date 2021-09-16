@@ -20,11 +20,11 @@ class Channel extends React.Component {
         }
     }
 
-    // componentDidUpdate(prevProps) {
-    //     if (prevProps.channels !== this.props.channels) {
-    //         this.props.updateServer(this.props.server);
-    //     }
-    // }
+    componentDidUpdate(prevProps) {
+        if (prevProps.channels.length !== this.props.channels.length && this.props.path !== "/servers/@me") {
+            this.props.updateServer(this.props.server);
+        }
+    }
 
     handleSubmit(e){
         e.preventDefault();
@@ -63,6 +63,7 @@ class Channel extends React.Component {
 
     render() {
         if (!this.props.server) return null
+        if (this.props.server.channels.length === 0) return null
         return (
             <div className="channels-container">
                 <div className="channels-container-header">

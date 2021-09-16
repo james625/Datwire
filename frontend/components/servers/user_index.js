@@ -145,6 +145,7 @@ class UserIndex extends React.Component {
                     updateChannel={this.props.updateChannel}
                     deleteChannel={this.props.deleteChannel}
                     channels={this.props.channels}
+                    path={this.props.path}
                 />
                 <Message 
                     server={this.props.server} 
