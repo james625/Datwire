@@ -31,7 +31,7 @@ class Greeting extends React.Component {
                         <div className="second-container-1">
                             <h2>Create an invite-only place where you belong</h2>
                             <p>
-                                Discord servers are organized into topic-based 
+                                Datwire servers are organized into topic-based 
                                 channels where you can collaborate, share, and 
                                 just talk about your day without clogging up a 
                                 group chat.
@@ -104,7 +104,7 @@ class Greeting extends React.Component {
                         <div className="second-container-1">
                             <h2>Create an invite-only place where you belong</h2>
                             <p>
-                                Discord servers are organized into topic-based 
+                                Datwire servers are organized into topic-based 
                                 channels where you can collaborate, share, and 
                                 just talk about your day without clogging up a 
                                 group chat.
