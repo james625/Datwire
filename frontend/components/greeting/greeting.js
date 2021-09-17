@@ -11,7 +11,7 @@ class Greeting extends React.Component {
                         <img src={window.logo} className="logo"/>
                         <p><a href="https://github.com/james625" className="github">Github</a></p>
                         <button className="login-button">
-                            <Link to="/servers/@me" className="login-link">Open Discord</Link>
+                            <Link to="/servers/@me" className="login-link">Open Datwire</Link>
                         </button>
                     </nav>
                     <div className="first-container">
