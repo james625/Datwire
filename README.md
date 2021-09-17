@@ -1,7 +1,6 @@
-# README
+![alt text](https://github.com/james625/Datwire/blob/main/app/assets/images/logotext.png "Logo Image")
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Datwire
 
 Things you may want to cover:
 
