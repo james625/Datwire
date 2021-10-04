@@ -60,6 +60,12 @@ class Channel extends React.Component {
         e.preventDefault();
         this.props.deleteChannel( { id: this.state.modalInfo.id });
         this.props.updateServer(this.props.server);
+        
+        if (this.props.server.channels[0].id !== this.state.modalInfo.id) {
+            this.props.history.push(`/servers/${this.props.server.id}/${this.props.server.channels[0].id}`)
+        } else {
+            this.props.history.push(`/servers/@me`)
+        }
         this.setState({ editModal: false, name: "", modalInfo: {} })
     }
 
@@ -108,6 +114,7 @@ class Channel extends React.Component {
                     <div className="edit-channel-modal">
                         <form>
                             <p className="edit-modal-customize">Channel Settings</p>
+                            <p className="delete-channel-warning">Warning: Deleting all channels will delete the server</p>
                             <label><p className="modal-label">CHANNEL NAME</p>
                                 <input 
                                     type="text" 
