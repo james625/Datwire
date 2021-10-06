@@ -9,7 +9,9 @@ class ChannelBanner extends React.Component {
         return (
             <div className="channel-banner-container">
                 <FontAwesomeIcon icon={faHashtag} id="channel-banner-hashtag"/>
-                <p className="channel-banner-name">{this.props.channel.name}</p>
+                <p className="channel-banner-name">{this.props.channel.name} &nbsp;&nbsp;&nbsp;
+                    Channel ID: {this.props.channel.id}
+                </p>
             </div>
         )
     }

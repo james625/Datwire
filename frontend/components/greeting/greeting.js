@@ -9,7 +9,12 @@ class Greeting extends React.Component {
                 <div className="home-container">
                     <nav className="home-nav">
                         <img src={window.logo} className="logo"/>
-                        <p><a href="https://github.com/james625" className="github">Github</a></p>
+                        <p className="online-presence-links">
+                            <a href="https://github.com/james625" className="github" target="_blank">Github</a>
+                            <a href="https://www.linkedin.com/in/jameschen625/" className="github" target="_blank">LinkedIn</a>
+                            <a href="https://angel.co/u/james-chen-75" className="github" target="_blank">AngelList</a>
+                            <a href="https://james625.github.io/" className="github" target="_blank">Portfolio</a>
+                        </p>
                         <button className="login-button">
                             <Link to="/servers/@me" className="login-link">Open Datwire</Link>
                         </button>
@@ -74,7 +79,12 @@ class Greeting extends React.Component {
                     </div>
                     <div className="sixth-container">
                         <h2>IMAGINE A PLACE</h2>
-                        <p><a href="https://github.com/james625" className="github">Github</a></p>
+                        <p className="online-presence-links">
+                            <a href="https://github.com/james625" className="github" target="_blank">Github</a>
+                            <a href="https://www.linkedin.com/in/jameschen625/" className="github" target="_blank">LinkedIn</a>
+                            <a href="https://angel.co/u/james-chen-75" className="github" target="_blank">AngelList</a>
+                            <a href="https://james625.github.io/" className="github" target="_blank">Portfolio</a>
+                        </p>
                         <button onClick={this.props.logout} className="signup-button">Log out</button>
                     </div>
                 </div>
@@ -84,7 +94,12 @@ class Greeting extends React.Component {
                 <div className="home-container">
                     <nav className="home-nav">
                         <img src={window.logo} className="logo"/>
-                        <p><a href="https://github.com/james625" className="github">Github</a></p>
+                        <p className="online-presence-links">
+                            <a href="https://github.com/james625" className="github" target="_blank">Github</a>
+                            <a href="https://www.linkedin.com/in/jameschen625/" className="github" target="_blank">LinkedIn</a>
+                            <a href="https://angel.co/u/james-chen-75" className="github" target="_blank">AngelList</a>
+                            <a href="https://james625.github.io/" className="github" target="_blank">Portfolio</a>
+                        </p>
                         <button className="login-button"><Link to="/login" className="login-link">Login</Link></button>
                     </nav>
                     <div className="first-container">
@@ -147,7 +162,12 @@ class Greeting extends React.Component {
                     </div>
                     <div className="sixth-container">
                         <h2>IMAGINE A PLACE</h2>
-                        <p><a href="https://github.com/james625" className="github">Github</a></p>
+                        <p className="online-presence-links">
+                            <a href="https://github.com/james625" className="github" target="_blank">Github</a>
+                            <a href="https://www.linkedin.com/in/jameschen625/" className="github" target="_blank">LinkedIn</a>
+                            <a href="https://angel.co/u/james-chen-75" className="github" target="_blank">AngelList</a>
+                            <a href="https://james625.github.io/" className="github" target="_blank">Portfolio</a>
+                        </p>
                         <button className="signup-button"><Link to="/signup" className="signup-link">Sign up</Link></button>
                     </div>
                 </div>
