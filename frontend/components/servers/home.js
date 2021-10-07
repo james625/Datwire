@@ -5,9 +5,13 @@ class Home extends React.Component {
 
     constructor(props){
         super(props)
-        this.state = { modal: false, id: "" }
+        this.state = { modal: false, id: "", channel: false, server: false, serverId: "", channelId: "" }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleServerChange = this.handleServerChange.bind(this)
+        this.handleServerJoin = this.handleServerJoin.bind(this)
+        this.handleChannelChange = this.handleChannelChange.bind(this)
+        this.handleChannelJoin = this.handleChannelJoin.bind(this)
     }
 
     handleChange(e) {
@@ -15,10 +19,34 @@ class Home extends React.Component {
         this.setState({ id: e.currentTarget.value})
     }
 
+    handleServerChange(e) {
+        e.preventDefault();
+        this.setState({ serverId: e.currentTarget.value})
+    }
+
+    handleChannelChange(e) {
+        e.preventDefault();
+        this.setState({ channelId: e.currentTarget.value})
+    }
+
     handleModal(field) {
         return e => {
             e.preventDefault();
             this.setState({ modal: field })
+        }
+    }
+
+    handleChannelModal(field) {
+        return e => {
+            e.preventDefault();
+            this.setState({ channel: field })
+        }
+    }
+
+    handleServerModal(field) {
+        return e => {
+            e.preventDefault();
+            this.setState({ server: field })
         }
     }
 
@@ -38,12 +66,42 @@ class Home extends React.Component {
         }
     }
 
+    handleServerJoin(e) {
+        e.preventDefault();
+        if (parseInt(this.state.serverId)) {
+            this.props.createUsersServer( { user_id: this.props.currentUser.id, server_id: parseInt(this.state.serverId) })
+            this.props.updateUser(this.props.currentUser)
+            this.props.fetchUserServers(this.props.currentUser.id)
+            this.props.history.push(`/servers/${parseInt(this.state.serverId)}`)
+            this.setState({ server: false, serverId: "" })
+        } else {
+            this.setState({ server: false, serverId: "" })
+        }
+    }
+
+    handleChannelJoin(e) {
+        e.preventDefault();
+        let server = this.state.channelId.split("-")[0]
+        let channel = this.state.channelId.split("-")[1]
+        if (parseInt(server) && parseInt(channel)) {
+            this.props.createUsersServer( { user_id: this.props.currentUser.id, server_id: parseInt(server) })
+            this.props.updateUser(this.props.currentUser)
+            this.props.fetchUserServers(this.props.currentUser.id)
+            this.props.history.push(`/servers/${parseInt(server)}/${parseInt(channel)}`)
+            this.setState({ channel: false, channelId: "" })
+        } else {
+            this.setState({ channel: false, channelId: "" })
+        }
+    }
+
     render() {
         if (this.props.server) return null
         if (this.props.path === "/servers/explore") return null
         if (!this.props.dmChannels) return null
         return (
             <div className="dm-container">
+                <button onClick={this.handleServerModal(true)}>Join a Server</button>
+                <button onClick={this.handleChannelModal(true)}>Join a Channel</button>
                 <div className="dm-container-header">
                     <p className="members-list-p">DIRECT MESSAGES</p>
                     <p id="plus" onClick={this.handleModal(true)}>+</p>
@@ -70,7 +128,7 @@ class Home extends React.Component {
                                 <input 
                                     type="text" 
                                     value={this.state.id} 
-                                    onChange={this.handleChange} 
+                                    onChange={this.handleChange}
                                     className="channel-modal-input"
                                 >
                                 </input>
@@ -79,6 +137,52 @@ class Home extends React.Component {
                             <div className="create-dm-buttons">
                                 <p onClick={this.handleModal(false)} className="edit-channel-modal-cancel create-dm-cancel">Cancel</p>
                                 <button onClick={this.handleSubmit} className="edit-channel-modal-button create-dm-create">Create DM</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div className={`modal-container ${ this.state.server ? "modal-show" : ""}`}>
+                    <div className="edit-channel-modal">
+                        <form>
+                            <p className="edit-modal-customize">Join an existing server</p>
+                            <label><p className="modal-label">Please enter the ID # of the server you want to join</p>
+                                <input 
+                                    type="text" 
+                                    value={this.state.serverId} 
+                                    onChange={this.handleServerChange} 
+                                    className="channel-modal-input"
+                                    placeholder="eg. 1"
+                                >
+                                </input>
+                            </label>
+                            <br/>
+                            <div className="create-dm-buttons">
+                                <p onClick={this.handleServerModal(false)} className="edit-channel-modal-cancel create-dm-cancel">Cancel</p>
+                                <button onClick={this.handleServerJoin} className="edit-channel-modal-button create-dm-create">Join</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div className={`modal-container ${ this.state.channel ? "modal-show" : ""}`}>
+                    <div className="edit-channel-modal">
+                        <form>
+                            <p className="edit-modal-customize">Join an existing channel</p>
+                            <label><p className="modal-label">Please enter the ID # of the server and channel you want to join</p>
+                                <input 
+                                    type="text" 
+                                    value={this.state.channelId} 
+                                    onChange={this.handleChannelChange} 
+                                    className="channel-modal-input"
+                                    placeholder="serverID-channelID eg. 1-1"
+                                >
+                                </input>
+                            </label>
+                            <br/>
+                            <div className="create-dm-buttons">
+                                <p onClick={this.handleChannelModal(false)} className="edit-channel-modal-cancel create-dm-cancel">Cancel</p>
+                                <button onClick={this.handleChannelJoin} className="edit-channel-modal-button create-dm-create">Join</button>
                             </div>
                         </form>
                     </div>
