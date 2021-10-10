@@ -74,3 +74,22 @@
     grid-row: 2 / 2;
     background-color: #36393F;
 }
+
+.join-server-by-id, .join-server-channel-by-id {
+    font-family: "Whitney","Helvetica Neue","Helvetica","Arial",sans-serif;
+    cursor: pointer;
+    background-color: transparent;
+    color: #8E9297;
+    border: none;
+    font-weight: 700;
+    text-align: left;
+    padding-left: 5%;
+    padding-top: 7%;
+    padding-bottom: 7%;
+    width: 100%;
+}
+
+.join-server-by-id:hover, .join-server-channel-by-id:hover {
+    background-color: #34373C;
+    color: #D7D8DE;
+}

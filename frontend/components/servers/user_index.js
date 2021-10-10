@@ -106,6 +106,7 @@ class UserIndex extends React.Component {
                     createDmChannel={this.props.createDmChannel}
                     createUsersServer = {this.props.createUsersServer}
                     updateUser = {this.props.updateUser}
+                    fetchUserServers = {this.props.fetchUserServers}
                 />
                 <Discover path={this.props.path}/>
                 <Explore path={this.props.path}/>

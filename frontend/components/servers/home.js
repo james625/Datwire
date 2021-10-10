@@ -100,8 +100,9 @@ class Home extends React.Component {
         if (!this.props.dmChannels) return null
         return (
             <div className="dm-container">
-                <button onClick={this.handleServerModal(true)}>Join a Server</button>
-                <button onClick={this.handleChannelModal(true)}>Join a Channel</button>
+                <button onClick={this.handleServerModal(true)} className="join-server-by-id">JOIN A SERVER</button> 
+                <br></br>
+                <button onClick={this.handleChannelModal(true)} className="join-server-channel-by-id">JOIN A CHANNEL</button>
                 <div className="dm-container-header">
                     <p className="members-list-p">DIRECT MESSAGES</p>
                     <p id="plus" onClick={this.handleModal(true)}>+</p>
