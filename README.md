@@ -5,6 +5,9 @@
 Datwire is a text messaging website with servers and channels to organize all of the conversations. Users can interact with one another through direct messaging as well. This is similar to the popular app Discord.
 
 # Live Site - [Datwire](https://datwire.herokuapp.com/)
+![alt text](https://github.com/james625/Datwire/blob/main/app/assets/images/sample1.PNG "Sample 1")
+![alt text](https://github.com/james625/Datwire/blob/main/app/assets/images/sample2.PNG "Sample 2")
+![alt text](https://github.com/james625/Datwire/blob/main/app/assets/images/sample3.PNG "Sample 3")
 
 # Servers, Channels, DMs
 
