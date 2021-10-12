@@ -83,7 +83,9 @@ class Channel extends React.Component {
                         return (<li key={channel.id}>
                                     <Link to={`/servers/${this.props.server.id}/${channel.id}`} className="channels-list-tag">
                                         <FontAwesomeIcon icon={faHashtag} id="hashtag"/>
-                                        <p className="channel-name">{channel.name}</p>
+                                        <p className="channel-name">
+                                            {channel.name.length > 8 ? `${channel.name.slice(0, 8)}...` : channel.name}
+                                        </p>
                                         <FontAwesomeIcon icon={faCog} className="cog" onClick={this.handleEditModal(true, channel)} />
                                     </Link>
                                 </li>)

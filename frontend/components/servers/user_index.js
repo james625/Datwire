@@ -107,6 +107,7 @@ class UserIndex extends React.Component {
                     createUsersServer = {this.props.createUsersServer}
                     updateUser = {this.props.updateUser}
                     fetchUserServers = {this.props.fetchUserServers}
+                    fetchDmChannels = {this.props.fetchDmChannels}
                 />
                 <Discover path={this.props.path}/>
                 <Explore path={this.props.path}/>
@@ -187,6 +188,7 @@ class UserIndex extends React.Component {
                     createDM={this.props.createDM}
                     fetchChannelDMs={this.props.fetchChannelDMs}
                     dmChannelId={this.props.dmChannelId}
+                    fetchDmChannels={this.props.fetchDmChannels}
                 />
                 <UserModule logout={this.props.logout} user={this.props.currentUser} />
                 <Server server={this.props.server} />

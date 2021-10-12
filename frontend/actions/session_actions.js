@@ -41,7 +41,8 @@ export const logout = () => dispatch => {
 }
 
 export const signup = user => dispatch => {
-    return sessionAPIUtil.signup(user).then(user => dispatch(receiveCurrentUser(user)))
+    return sessionAPIUtil.signup(user).then(user => dispatch(receiveCurrentUser(user)),
+                                            errors => dispatch(receiveErrors(errors.responseJSON)))
 }
 
 export const updateUser = user => dispatch => {

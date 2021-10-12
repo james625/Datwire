@@ -74,7 +74,9 @@ class ServerDropdown extends React.Component {
                     onClick={this.handleDropdown(!this.state.dropdown)} 
                     onBlur={this.handleDropdown(false)}
                 >
-                    <p className="server-dropdown-name">{this.props.server.name} &nbsp;&nbsp;&nbsp;
+                    <p className="server-dropdown-name">
+                        {this.props.server.name.length > 14 ? `${this.props.server.name.slice(0,14)}...` : this.props.server.name}
+                        &nbsp;&nbsp;&nbsp;
                         Server ID: {this.props.server.id}
                     </p>
                     <i className="fas fa-chevron-down"></i>

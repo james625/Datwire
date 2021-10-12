@@ -5,7 +5,7 @@ import SessionForm from "./session_form";
 
 const mSTP = (state, ownProps) => {
     return {
-        errors: state.errors,
+        errors: state.errors.session,
         formType: "signup"
     }
 }
@@ -13,7 +13,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => {
     return {
         processForm: user => dispatch(signup(user)),
-        clearErrors: () => dispatch(clearErrors)
+        clearErrors: () => dispatch(clearErrors())
     }
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import consumer from "../../consumer";
 
 class Home extends React.Component {
 
@@ -12,6 +13,34 @@ class Home extends React.Component {
         this.handleServerJoin = this.handleServerJoin.bind(this)
         this.handleChannelChange = this.handleChannelChange.bind(this)
         this.handleChannelJoin = this.handleChannelJoin.bind(this)
+        this.subscription = null
+    }
+
+    componentDidMount(){
+        this.subscribe()
+    }
+
+    componentWillUnmount(){
+        if (this.subscription){
+            this.subscription.unsubscribe();
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.dmChannels.length !== this.props.dmChannels.length) {
+            this.props.fetchDmChannels(this.props.currentUser.id);
+        }
+    }
+
+    subscribe() {
+        this.subscription = consumer.subscriptions.create(
+            { channel: "UserHomeChannel", id: this.state.id },
+            {
+                received: data => {
+                    this.props.fetchDmChannels(this.props.currentUser.id)
+                }
+            }
+        )
     }
 
     handleChange(e) {
@@ -56,11 +85,16 @@ class Home extends React.Component {
             if (parseInt(this.state.id) > this.props.currentUser.id) {
                 this.props.createDmChannel({user1_id: this.props.currentUser.id, user2_id: parseInt(this.state.id) })
                 // this.props.history.push(`/servers/@me/${this.props.currentUser.id}/${parseInt(this.state.id)}`)
+                this.subscription.send({
+                    message: this.props.currentUser.id
+                })
                 this.setState({ modal: false, id: "" })
             } else {
                 this.props.createDmChannel({user2_id: this.props.currentUser.id, user1_id: parseInt(this.state.id) })
                 // this.props.history.push(`/servers/@me/${parseInt(this.state.id)}/${this.props.currentUser.id}`)
-                
+                this.subscription.send({
+                    message: this.props.currentUser.id
+                })
             }
             this.setState({ modal: false, id: "" })
         }
